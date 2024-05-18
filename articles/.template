@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Perkenalkan, aku Reza Nurfachmi, calon mentormu. Hehe."
+    />
+
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="icon" href="/favicon.svg" />
+    <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
+    <title>Mentoring</title>
+  </head>
+
+  <body>
+    <nav>
+      <a href="/index.html">Home</a> • <a href="/about.html">About</a> •
+      <a href="/now.html">Now</a> • <a href="/friends.html">Friends</a> •
+      <a href="/projects.html">Projects</a> • <a href="/feed.xml">RSS</a>
+      <hr />
+    </nav>
+
+    <h1>
+      Mentoring
+      <div role="doc-subtitle">31 Dec 2020 • Reza Nurfachmi</div>
+    </h1>
+
+    <p>Assalamualaikum warahmatullahi wabarakatuh 👋</p>
+
+    <p>
+      Mulai dari <a>1 juta</a> untuk Web Programming sampai tak terhingga.
+    </p>
+
+    <footer>
+      <hr />
+      <p>
+        <strong>Thoughts?</strong>
+        <a href="mailto:reza.nurfachmi@gmail.com">Send me an email!</a> I'd love to
+        discuss.
+      </p>
+      <p>
+        This work is licensed under a
+        <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"
+          >Creative Commons Attribution 4.0 International License</a
+        >.
+      </p>
+    </footer>
+  </body>
+</html>

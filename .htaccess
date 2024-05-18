@@ -1,0 +1,19 @@
+# Aktifkan mod_rewrite
+RewriteEngine On
+
+# Blokir akses langsung ke semua direktori
+Options -Indexes
+
+# Jika file atau direktori tidak ada, tampilkan halaman 403 Forbidden
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . - [F]
+
+# Custom 403 Error Document
+ErrorDocument 403 /403.html
+
+# Blokir akses langsung ke file .htaccess
+<Files .htaccess>
+    Order Allow,Deny
+    Deny from all
+</Files>

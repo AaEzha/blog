@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Perkenalkan, aku Reza Nurfachmi, calon mentormu. Hehe."
+    />
+
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="icon" href="/favicon.svg" />
+    <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
+    <title>HTML Set Print Landscape</title>
+  </head>
+
+  <body>
+    <nav>
+      <a href="/index.html">Home</a> • <a href="/about.html">About</a> •
+      <a href="/now.html">Now</a> • <a href="/friends.html">Friends</a> •
+      <a href="/projects.html">Projects</a> • <a href="/feed.xml">RSS</a>
+      <hr />
+    </nav>
+
+    <h1>
+      HTML Set Print Landscape
+      <div role="doc-subtitle">28 Dec 2021 • Reza Nurfachmi</div>
+    </h1>
+
+    <p>Assalamualaikum warahmatullahi wabarakatuh 👋</p>
+
+    <p>
+      Sebagai Back-End Developer, saya sering mendapatkan kasus untuk mencetak sesuatu seperti <em>invoice</em>, <em>purchase order</em>, dan lain sebagainya. Secara <em>default</em>, bawaan dari browser saat ingin mencetak sesuatu adalah halamannya diset sebagai <strong>portrait</strong>. Bagaimana kalau ingin langsung <strong>landscape</strong> saat ingin mencetak?
+    </p>
+
+    <p>
+      Ternyata setelah <em>googling</em> sana-sini, solusinya mudah saja. Cukup sematkan barisan CSS ini pada HTML kita.
+    </p>
+
+    <pre><code>&lt;style type="text/css">
+    @media print {
+        @page {size: landscape}
+    }
+&lt;/style></code></pre>
+
+    <p>
+      Cobain sendiri deh efeknya ya.
+    </p>
+
+    <footer>
+      <hr />
+      <p>
+        <strong>Thoughts?</strong>
+        <a href="mailto:reza.nurfachmi@gmail.com">Send me an email!</a> I'd love to
+        discuss.
+      </p>
+      <p>
+        This work is licensed under a
+        <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"
+          >Creative Commons Attribution 4.0 International License</a
+        >.
+      </p>
+    </footer>
+  </body>
+</html>

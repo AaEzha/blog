@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Mari belajar membuat custom validation di Laravel "
+    />
+
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="icon" href="/favicon.svg" />
+    <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
+    <title>Laravel Float Number Validation</title>
+  </head>
+
+  <body>
+    <nav>
+      <a href="/index.html">Home</a> • <a href="/about.html">About</a> •
+      <a href="/now.html">Now</a> • <a href="/friends.html">Friends</a> •
+      <a href="/projects.html">Projects</a> • <a href="/feed.xml">RSS</a>
+      <hr />
+    </nav>
+
+    <h1>
+      Laravel Float Number Validation
+      <div role="doc-subtitle">20 Jan 2021 • Reza Nurfachmi</div>
+    </h1>
+
+    <p>Assalamualaikum warahmatullahi wabarakatuh 👋</p>
+
+    <p>
+      Ini adalah salah satu pertanyaan dari grup diskusi WhatsApp yang aku
+      kelola, grup khusus membahas Laravel tapi gak menutup untuk membahas hal
+      lain selagi masih berhubungan dengan teknologi atau pemrograman berbasis
+      web.
+    </p>
+
+    <p>
+      Jadi, pertanyaannya adalah bagaimana membuat validasi input dalam form
+      yang mengharuskan orang itu mengisi dalam bentuk float seperti 0.5, 18.8,
+      dan sejenisnya?
+    </p>
+
+    <p>
+      Karena tidak disediakan secara khusus untuk floating point, maka ada
+      beberapa solusi yang terpikirkan.
+    </p>
+
+    <h3>Regular Expression</h3>
+
+    <p>
+      Namun, saya sendiri belum familiar dengan yang namanya Regex, jadi belum
+      aku bahas dulu. Nanti aku update kalau ketemu jawabannya.
+    </p>
+
+    <h3>Buat Validation Rule-mu Sendiri!</h3>
+
+    <p>
+      Nah, mungkin ini bisa membantu untuk kasus ini atau kasus lain yang ingin
+      memvalidasi input dengan seenaknya sendiri. Hehehe.
+    </p>
+
+    <h4>Langkah pertama</h4>
+
+    <p>Buat Rule baru <kbd>php artisan make:rule FloatValidator</kbd>.</p>
+
+    <h4>Langkah kedua</h4>
+
+    <p>
+      Kemudian buka file yang baru dibuat tadi. Seharusnya ada di lokasi
+      <kbd>app\Rules\FloatValidator.php</kbd>.
+    </p>
+
+    <p>Lalu, silahkan ditulis menjadi seperti ini:</p>
+
+    <pre><code>public function passes($attribute, $value)
+{
+    return is_float($value + 0);
+}
+
+public function message()
+{
+    return 'Harus bentuk float.';
+}</code></pre>
+
+    <h4>
+      Langkah ketiga
+    </h4>
+
+    <p>
+      Pada controller, tinggal tambahkan validasimu.
+    </p>
+
+    <pre><code>use App\Rules\FloatValidator;
+
+...
+
+public function store(Request $request)
+{
+    $request->validate([
+        'angka' => new FloatValidator()
+    ]);
+
+    return $request->angka;
+}
+</code></pre>
+
+    <p>
+      Nah, kira-kira begitu sih kalau mau membuat validasi untuk floating number atau mau membuat validasi sendiri.
+    </p>
+
+    <footer>
+      <hr />
+      <p>
+        <strong>Thoughts?</strong>
+        <a href="mailto:reza.nurfachmi@gmail.com">Send me an email!</a> I'd love to
+        discuss.
+      </p>
+      <p>
+        This work is licensed under a
+        <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"
+          >Creative Commons Attribution 4.0 International License</a
+        >.
+      </p>
+    </footer>
+  </body>
+</html>

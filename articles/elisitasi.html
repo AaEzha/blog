@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Perkenalkan, aku Reza Nurfachmi, calon mentormu. Hehe."
+    />
+
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="icon" href="/favicon.svg" />
+    <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
+    <title>Elisitasi</title>
+  </head>
+
+  <body>
+    <nav>
+      <a href="/index.html">Home</a> • <a href="/about.html">About</a> •
+      <a href="/now.html">Now</a> • <a href="/friends.html">Friends</a> •
+      <a href="/projects.html">Projects</a> • <a href="/feed.xml">RSS</a>
+      <hr />
+    </nav>
+
+    <h1>
+      Elisitasi
+      <div role="doc-subtitle">8 Nov 2022 • Reza Nurfachmi</div>
+    </h1>
+
+    <p>Assalamualaikum warahmatullahi wabarakatuh 👋</p>
+
+    <p>
+      Sesungguhnya ini hanyalah catatan dari apa yang saya pelajari saat kuliah.
+      Saya lupa mata kuliah apa tepatnya. So, mari kita lanjutin aja yaaa…
+    </p>
+
+    <p>
+      Elisitasi adalah seperangkat data terkait kebutuhan sistem baru dari
+      aktivitas pengguna sistem atau stakeholder yang memiliki
+      keterkaitan/hubungan langsung dengan penggunaan sistem maupun dengan
+      pengembangan sistem. <sup><a href="#fn1" id="ref1">1</a></sup>
+    </p>
+
+    <p>
+      Sederhananya, proses elisitasi adalah proses eliminasi terhadap
+      requirements dari user melalui 3 tahap dan final elisitasi.
+    </p>
+
+    <ol>
+      <li>
+        Elisitasi Tahap 1
+        <p>
+          Berisi seluruh rancangan sistem baru yang diusulkan oleh pihak
+          manajemen terkait melalui proses wawancara.
+        </p>
+      </li>
+
+      <li>
+        Elisitasi Tahap 2
+        <p>
+          Merupakan hasil pengklasifikasian dari elisitasi tahap I berdasarkan
+          metode MDI. Metode MDI ini bertujuan untuk memisahkan antara rancangan
+          sistem yang penting dan harus ada pada sistem baru dengan rancangan
+          yang disanggupi oleh penulis untuk dieksekusi.
+        </p>
+        <ol>
+          <li>
+            “M” pada MDI itu artinya
+            <strong><em>Mandatory</em></strong> (penting). Maksudnya requirement
+            tersebut harus ada dan tidak boleh dihilangkan pada saat membuat
+            sistem baru.
+          </li>
+          <li>
+            “D” pada MDI itu artinya <strong><em>Desirable</em></strong
+            >. Maksudnya requirement tersebut tidak terlalu penting dan boleh
+            dihilangkan. Tetapi jika requirement tersebut digunakan dalam
+            pembuatan sistem, akan membuat sistem tersebut lebih sempurna.
+          </li>
+          <li>
+            “I” pada MDI itu artinya <strong><em>Inessential</em></strong
+            >. Maksudnya bahwa requirement tersebut bukanlah bagian dari sistem
+            yang dibahas dan merupakan bagian dari luar sistem.
+          </li>
+        </ol>
+      </li>
+      <li>
+        Elisitasi Tahap 3
+        <p>
+          Merupakan hasil penyusutan dari elisitasi tahap II dengancara
+          mengeliminasi semua requirement yang optionnya I pada metode MDI.
+          Selanjutnya semua requirement yang tersisa diklasifikasikan kembali
+          melalui metode TOE, yaitu sebagai berikut:
+        </p>
+        <ol>
+          <li>
+            T artinya <strong><em>Technical</em></strong
+            >, maksudnya bagaimana tata cara/teknik pembuatan requirement
+            tersebut dalam sistem yang diusulkan.
+          </li>
+          <li>
+            O artinya <strong><em>Operational</em></strong
+            >, maksudnya bagaimana tata cara penggunaan requirement tersebut
+            dalam sistem yang akan dikembangkan.
+          </li>
+          <li>
+            E artinya <strong><em>Economy</em></strong
+            >, maksudnya berapakah biaya yang diperlukan guna membangun
+            requirement tersebut didalam sistem.
+          </li>
+        </ol>
+        <p>
+          Metode TOE tersebut dibagi kembali menjadi beberapa option, yaitu:
+        </p>
+        <ol>
+          <li>
+            <strong><em>High</em></strong> (H) : Sulit untuk dikerjakan, karena
+            tehnik pembuatan dan pemakaiannya sulit serta biayanya mahal,
+            sehingga requirement tersebut harus dieliminasi.
+          </li>
+          <li>
+            <strong><em>Middle</em></strong> (M) : Mampu untuk dikerjakan.
+          </li>
+          <li>
+            <strong><em>Low</em></strong> (L) : Mudah untuk dikerjakan.
+          </li>
+        </ol>
+      </li>
+      <li>
+        Final Draft Elisitasi
+        <p>
+          Merupakan hasil akhir yang dicapai dari suatu proses elisitasi yang
+          dapat digunakan sebagai dasar pembuatan suatu sistem yang akan
+          dikembangkan.
+        </p>
+      </li>
+    </ol>
+
+    <hr />
+
+    <p>Biar gak bingung, mari kita lihat contohnya saja ya.</p>
+
+    <ol>
+      <li>
+        Elisitasi Tahap 1
+        <figure>
+          <img
+            src="../images/elisitasi-1.png"
+            alt="Elisitasi Tahap 1"
+          />
+          <figcaption>Contoh elisitasi tahap 1</figcaption>
+        </figure>
+      </li>
+      <li>
+        Elisitasi Tahap 2
+        <figure>
+          <img
+            src="../images/elisitasi-2.png"
+            alt="Elisitasi Tahap 2"
+          />
+          <figcaption>Contoh elisitasi tahap 2</figcaption>
+        </figure>
+      </li>
+      <li>
+        Elisitasi Tahap 3
+        <figure>
+          <img
+            src="../images/elisitasi-3.png"
+            alt="Elisitasi Tahap 3"
+          />
+          <figcaption>Contoh elisitasi tahap 3</figcaption>
+        </figure>
+      </li>
+      <li>
+        Final Draft Elisitasi
+        <figure>
+          <img
+            src="../images/elisitasi-final.png"
+            alt="Final Draft Elisitasi"
+          />
+          <figcaption>Contoh final draft elisitasi</figcaption>
+        </figure>
+      </li>
+    </ol>
+
+    <p>
+      Hasil di atas tentu belum final, karena masih sebagai Draft. Semuanya masih bisa diolah lagi, bahkan bisa berulang ke Tahap 1 lagi berdasarkan data pada Final Draft-nya.
+    </p>
+
+    <p>
+      Nah, kurang lebih demikian tentang elisitasi.
+    </p>
+
+    <p>
+      Sumber: <a href="https://widuri.raharja.info/index.php?title=SI1422481557">Widuri</a>
+    </p>
+
+    <hr>
+
+    
+    <sup id="fn1">1. Yousuf, Masooma, and M. Asger. “Comparison of Various Requirements Elicitation Techniques”. International Jurnal of Computer Applications Vol.116 No.4, April 2015 ISSN 0975-8887. <a href="#ref1">↩</a></sup>
+
+    <footer>
+      <hr />
+      <p>
+        <strong>Thoughts?</strong>
+        <a href="mailto:reza.nurfachmi@gmail.com">Send me an email!</a> I'd love
+        to discuss.
+      </p>
+      <p>
+        This work is licensed under a
+        <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"
+          >Creative Commons Attribution 4.0 International License</a
+        >.
+      </p>
+    </footer>
+  </body>
+</html>

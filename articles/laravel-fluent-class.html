@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Perkenalkan, aku Reza Nurfachmi, calon mentormu. Hehe."
+    />
+
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="icon" href="/favicon.svg" />
+    <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
+    <title>Class Fluent, Class Ajaib di Laravel</title>
+  </head>
+
+  <body>
+    <nav>
+      <a href="/index.html">Home</a> • <a href="/about.html">About</a> •
+      <a href="/now.html">Now</a> • <a href="/friends.html">Friends</a> •
+      <a href="/projects.html">Projects</a> • <a href="/feed.xml">RSS</a>
+      <hr />
+    </nav>
+
+    <h1>
+      Class Fluent, Class Ajaib di Laravel
+      <div role="doc-subtitle">28 Mar 2023 • Reza Nurfachmi</div>
+    </h1>
+
+    <p>Assalamualaikum warahmatullahi wabarakatuh 👋</p>
+
+    <p>
+      Tau nggak sih kenapa barisan kode sederhana seperti ini bisa mengeluarkan
+      output dengan berbagai cara?
+    </p>
+
+    <pre><code>$user = \App\Models\User::inRandomOrder()->first();</code></pre>
+
+    <p>Dengan keluaran sebagai <kbd>array</kbd>, bisa…</p>
+
+    <pre><code>$user['name']; // output: John</code></pre>
+
+    <p>Dengan keluaran sebagai <kbd>object</kbd>, bisa juga…</p>
+
+    <pre><code>$user->name; // output: John</code></pre>
+
+    <p>
+      Jawabannya adalah karena ada suatu class yang namanya Fluent. Class ini
+      secara ajaib melakukan mutasi kepada data agar bisa diakses dalam berbagai
+      metode. Salah duanya adalah seperti yang sudah penulis jabarkan di atas.
+    </p>
+
+    <p>
+      Sebelum penulis berikan berbagai contoh penggunaannya, mari kita kenalan
+      dengan class Fluent ini.
+    </p>
+
+    <pre><code>use Illuminate\Support\Fluent;
+
+$attributes = ['name' => 'Reza'];
+$data = new Fluent($attributes);</code></pre>
+
+    <p>
+      Selanjutnya adalah ada berbagai metode yang bisa dilakukan oleh class
+      Fluent ini. Penulis langsung jabarkan melalui contoh satu per satu ya.
+    </p>
+
+    <pre><code>$data->get('name', 'Nurfachmi');</code></pre>
+
+    <p>
+      Kode di atas akan mengembalikan nilai dari <kbd>name</kbd> atau <kbd>Nurfachmi</kbd> jika <kbd>name</kbd> belum di-set nilainya.
+    </p>
+
+    <hr>
+
+    <pre><code>$data->getAttributes();</code></pre>
+
+    <p>
+      Kode di atas akan mengembalikan seluruh atribut yang sudah di-set, termasuk yang baru dibuat, misalnya:
+    </p>
+
+    <pre><code>$data->last_name = "Nurfachmi";
+
+print_r($data->getAttributes());
+/***
+Output:
+Array ( [name] => Reza [last_name] => Nurfachmi )
+***/</code></pre>
+
+    <hr>
+
+    <pre><code>$data->toArray();</code></pre>
+
+    <p>
+      Kode di atas akan mengembalikan data sebagai array.
+    </p>
+
+    <hr>
+
+    <pre><code>$data->toJson();</code></pre>
+
+    <p>
+      Kode di atas akan mengembalikan data sebagai json.
+    </p>
+
+    <hr>
+
+    <p>
+      Fluent adalah sebuah utiliti class yang disediakan oleh Laravel sendiri agar kita dapat secara <em>luwes</em> mengolah data.
+    </p>
+
+    <footer>
+      <hr />
+      <p>
+        <strong>Thoughts?</strong>
+        <a href="mailto:reza.nurfachmi@gmail.com">Send me an email!</a> I'd love
+        to discuss.
+      </p>
+      <p>
+        This work is licensed under a
+        <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"
+          >Creative Commons Attribution 4.0 International License</a
+        >.
+      </p>
+    </footer>
+  </body>
+</html>

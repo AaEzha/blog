@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Perkenalkan, aku Reza Nurfachmi, calon mentormu. Hehe."
+    />
+
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="icon" href="/favicon.svg" />
+    <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
+    <title>Membuat Blade Directive Sendiri</title>
+  </head>
+
+  <body>
+    <nav>
+      <a href="/index.html">Home</a> • <a href="/about.html">About</a> •
+      <a href="/now.html">Now</a> • <a href="/friends.html">Friends</a> •
+      <a href="/projects.html">Projects</a> • <a href="/feed.xml">RSS</a>
+      <hr />
+    </nav>
+
+    <h1>
+      Membuat Blade Directive Sendiri
+      <div role="doc-subtitle">2 Aug 2022 • Reza Nurfachmi</div>
+    </h1>
+
+    <p>Assalamualaikum warahmatullahi wabarakatuh 👋</p>
+
+    <p>
+      Sebagai salah satu programmer yang menggunakan Laravel, tentunya setiap hari saya berjibaku dengan file berekstensikan <kbd>*.blade.php</kbd>. Tak jarang pula saya membuat beberapa fungsi untuk mempermudah hal-hal yang sulit atau berulang. Salah satu yang sering saya lakukan adalah untuk menampilkan data uang.
+    </p>
+
+    <p>
+      Misalnya, dari database hanya menampilkan <kbd>150000</kbd>, tetapi saya ingin hasil akhirnya adalah <kbd>IDR 150.000</kbd>.
+    </p>
+
+    <p>
+      Normalnya akan melakukan hal seperti ini:
+    </p>
+
+    <pre><code>&lt;p>IDR {{ number_format($data->price, 0, ',', '.') }} &lt;/p></code></pre>
+
+    <p>
+      Namun, saya melakukannya dengan cara lain, yakni seperti ini:
+    </p>
+
+    <pre><code>&lt;p>@idr($data->price)&lt;/p></code></pre>
+
+    <p>
+      Bagaimana cara melakukannya?
+    </p>
+
+    <p>
+      <em>Insyaallah</em> mudah. Yuk sambil dipraktekkan.
+    </p>
+
+    <p>
+      Caranya adalah dengan mendaftarkan directive blade kita ke <strong>app/Providers/AppServiceProvider.php</strong> di dalam method <kbd>boot()</kbd>.
+    </p>
+
+    <pre><code>public function boot()
+{
+    Blade::directive('idr', function ($string) {
+        return "&lt;?php echo 'IDR ' . number_format($data->price, 0, ',', '.'); ?>";
+    });
+}</code></pre>
+
+    <p>
+      Perhatikan bahwa kita tidak hanya me-return string biasa, melainkan lengkap dengan tag pembuka dan penutup serta <kbd>echo</kbd>-nya seakan menuliskan kode PHP di dalam PHP. Mengapa demikian?
+    </p>
+
+    <p>
+      Karena directive ini akan dijalankan di tengah-tengah blok kode HTML, meskipun ekstensi filenya <kbd>.php</kbd>.
+    </p>
+
+    <p>
+      Kalau teman-teman ingin mendaftarkan blade directive lainnya, silahkan tambahkan saja di bawah barisan kode tadi ya.
+    </p>
+
+    <p>
+      <strong>Happy coding!</strong>
+    </p>
+
+    <footer>
+      <hr />
+      <p>
+        <strong>Thoughts?</strong>
+        <a href="mailto:reza.nurfachmi@gmail.com">Send me an email!</a> I'd love to
+        discuss.
+      </p>
+      <p>
+        This work is licensed under a
+        <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"
+          >Creative Commons Attribution 4.0 International License</a
+        >.
+      </p>
+    </footer>
+  </body>
+</html>

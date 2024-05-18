@@ -1,0 +1,69 @@
+/* 
+* sumber: ig.emnace.org
+* 18 Mei 2024 - 01:08 AM
+*/
+body {
+  font-family: Roboto, Arial, Helvetica, sans-serif;
+  margin: 40px auto;
+  max-width: 650px;
+  padding: 0 10px;
+  line-height: 1.8;
+}
+
+hr {
+  border-color: rgba(200, 200, 200, 0.6);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.4;
+}
+
+[role="doc-subtitle"] {
+  color: #6c6c6c;
+  text-transform: uppercase;
+  font-size: 10pt;
+}
+
+footer {
+  color: #6c6c6c;
+  font-size: 11pt;
+}
+
+a {
+  color: #4444ee;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+pre {
+  border: 1px solid #6c6c6c;
+  border-radius: 5px;
+  padding: 10px;
+  overflow-x: auto;
+}
+
+code {
+  font-size: 11pt;
+}
+
+figure {
+  text-align: center;
+  padding: 5px;
+}
+
+figure > img {
+  border: 1px solid #6c6c6c;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+figure > figcaption {
+  font-size: 10pt;
+}
+
+kbd {
+  padding: 0.125rem 0.25rem;
+  color: #c7254e;
+  background-color: #f9f2f4;
+  border-radius: 0.25rem;
+}

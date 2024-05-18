@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Perkenalkan, aku Reza Nurfachmi, calon mentormu. Hehe."
+    />
+
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="icon" href="/favicon.svg" />
+    <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
+    <title>Exclude Contents When Printing</title>
+  </head>
+
+  <body>
+    <nav>
+      <a href="/index.html">Home</a> • <a href="/about.html">About</a> •
+      <a href="/now.html">Now</a> • <a href="/friends.html">Friends</a> •
+      <a href="/projects.html">Projects</a> • <a href="/feed.xml">RSS</a>
+      <hr />
+    </nav>
+
+    <h1>
+      Exclude Contents When Printing
+      <div role="doc-subtitle">31 Dec 2021 • Reza Nurfachmi</div>
+    </h1>
+
+    <p>Assalamualaikum warahmatullahi wabarakatuh 👋</p>
+
+    <p>
+      Ada kalanya, ketika develop web untuk halaman yang dicetak, ada beberapa hal yang tidak ingin kita ikut cetak pula. Bagaimana caranya? Begini aja. Semoga mudah.
+    </p>
+
+    <h3>
+      CSS
+    </h3>
+
+    <pre><code>@media print {
+    .no-print {
+        display: none;
+    }
+}</code></pre>
+
+    <h3>
+      HTML
+    </h3>
+
+    <pre><code>&lt;body>
+    &lt;p>Text to print&lt;/p>
+
+    &lt;div class="no-print">
+        everything located inside this div will not be printed out
+    &lt;/div>
+
+&lt;/body></code></pre>
+
+    <p>
+      Semoga bermafaat, ya!
+    </p>
+
+    <footer>
+      <hr />
+      <p>
+        <strong>Thoughts?</strong>
+        <a href="mailto:reza.nurfachmi@gmail.com">Send me an email!</a> I'd love to
+        discuss.
+      </p>
+      <p>
+        This work is licensed under a
+        <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"
+          >Creative Commons Attribution 4.0 International License</a
+        >.
+      </p>
+    </footer>
+  </body>
+</html>

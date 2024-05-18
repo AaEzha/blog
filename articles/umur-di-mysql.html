@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Perkenalkan, aku Reza Nurfachmi, calon mentormu. Hehe."
+    />
+
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="icon" href="/favicon.svg" />
+    <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
+    <title>Mendapatkan Umur di MySQL</title>
+  </head>
+
+  <body>
+    <nav>
+      <a href="/index.html">Home</a> • <a href="/about.html">About</a> •
+      <a href="/now.html">Now</a> • <a href="/friends.html">Friends</a> •
+      <a href="/projects.html">Projects</a> • <a href="/feed.xml">RSS</a>
+      <hr />
+    </nav>
+
+    <h1>
+      Mendapatkan Umur di MySQL
+      <div role="doc-subtitle">1 Dec 2021 • Reza Nurfachmi</div>
+    </h1>
+
+    <p>Assalamualaikum warahmatullahi wabarakatuh 👋</p>
+
+    <p>
+      Sudah biasa kalau kita memiliki satu field dengan tipe data <kbd>date</kbd> untuk menyimpan tanggal lahir. Namun, bagaimana jika kita ingin mengambil usianya dari kolom tanggal lahir tersebut? Ini adalah caraku dari dulu sampai sekarang digunakan.
+    </p>
+
+    <p>
+      Anggaplah kita memiliki struktur tabel seperti ini:
+    </p>
+
+    <pre><code>MariaDB [test]> desc biodata;
++-------+--------------+------+-----+---------+----------------+
+| Field | Type         | Null | Key | Default | Extra          |
++-------+--------------+------+-----+---------+----------------+
+| id    | int(11)      | NO   | PRI | NULL    | auto_increment |
+| nama  | varchar(100) | YES  |     | NULL    |                |
+| ttl   | date         | YES  |     | NULL    |                |
++-------+--------------+------+-----+---------+----------------+
+3 rows in set (0.011 sec)</code></pre>
+
+    <p>
+      Maka, begini query-ku untuk mendapatkan nilai umur:
+    </p>
+
+    <pre><code>SELECT FLOOR(DATEDIFF(curdate() , ttl) / 365.25) age from biodata;</code></pre>
+
+    <pre><code>MariaDB [test]> SELECT FLOOR(DATEDIFF(curdate() , ttl) / 365.25) age from biodata;
++------+
+| age  |
++------+
+|   32 |
++------+
+1 row in set (0.011 sec)</code></pre>
+
+    <p>
+      Mudah, kan?
+    </p>
+
+    <footer>
+      <hr />
+      <p>
+        <strong>Thoughts?</strong>
+        <a href="mailto:reza.nurfachmi@gmail.com">Send me an email!</a> I'd love to
+        discuss.
+      </p>
+      <p>
+        This work is licensed under a
+        <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"
+          >Creative Commons Attribution 4.0 International License</a
+        >.
+      </p>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Perkenalkan, aku Reza Nurfachmi, calon mentormu. Hehe."
+    />
+
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="icon" href="/favicon.svg" />
+    <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
+    <title>Auto Created dan Updated field</title>
+  </head>
+
+  <body>
+    <nav>
+      <a href="/index.html">Home</a> • <a href="/about.html">About</a> •
+      <a href="/now.html">Now</a> • <a href="/friends.html">Friends</a> •
+      <a href="/projects.html">Projects</a> • <a href="/feed.xml">RSS</a>
+      <hr />
+    </nav>
+
+    <h1>
+      Auto Created dan Updated field
+      <div role="doc-subtitle">27 Nov 2021 • Reza Nurfachmi</div>
+    </h1>
+
+    <p>Assalamualaikum warahmatullahi wabarakatuh 👋</p>
+
+    <p>
+      Untuk pengguna Laravel, pasti gak asing dengan kolom <kbd>created_at</kbd> dan <kbd>updated_at</kbd>, kan? Kalau masih asing, gak apa-apa, toh saya jelasin dulu sebentar di bawah ini. <em>Yuk lanjut…</em>
+    </p>
+
+    <p>
+      Pada setiap tabel, hendaknya ada kolom <kbd>created_at</kbd> dan <kbd>updated_at</kbd> sebagai informasi data tersebut kapan dibuat pertama kali dan kapan terakhir diubah. Lebih jauh lagi, boleh ditambahkan kolom <kbd>created_by</kbd> dan <kbd>updated_by</kbd> untuk menyimpan informasi usernya. Nah, sampai sini paham, ya?
+    </p>
+
+    <p>
+      Di Laravel, kita tak perlu pusing dengan query untuk kedua field tersebut karena sudah di-_handle_ oleh eloquent. Namun, bagaimana bisa diaplikasikan untuk projek yang tidak menggunakan Laravel? Lebih umum lagi untuk semua aplikasi.
+    </p>
+
+    <p>
+      Jawabannya adalah kita otomatiskan saja!
+    </p>
+
+    <p>
+      Kolom <kbd>created_at</kbd> otomatis terisi ketika kita input data.
+    </p>
+
+    <p>
+      Kolom <kbd>updated_at</kbd> otomatis terisi ketika input data dan setiap kita update data.
+    </p>
+
+    <p>
+      Bagaimana query-nya? Menurutku begini…
+    </p>
+
+    <pre><code>CREATE TABLE users (
+    id bigint auto_increment primary key,
+    email varchar(100) not null unique,
+    password varchar(100) not null,
+    name varchar(100) not null,
+    created_at datetime default current_timestamp,
+    updated_at datetime default current_timestamp on update current_timestamp
+)</code></pre>
+
+    <p>
+      Dengan demikian kolom <kbd>created_at</kbd> dan <kbd>updated_at</kbd> tidak perlu kita sentuh sama sekali di query-query yang akan datang. Kedua kolom tersebut akan otomatis terisi sesuai dengan eventnya.
+    </p>
+
+    <footer>
+      <hr />
+      <p>
+        <strong>Thoughts?</strong>
+        <a href="mailto:reza.nurfachmi@gmail.com">Send me an email!</a> I'd love to
+        discuss.
+      </p>
+      <p>
+        This work is licensed under a
+        <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"
+          >Creative Commons Attribution 4.0 International License</a
+        >.
+      </p>
+    </footer>
+  </body>
+</html>

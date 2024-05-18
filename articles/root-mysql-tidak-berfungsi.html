@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Perkenalkan, aku Reza Nurfachmi, calon mentormu. Hehe."
+    />
+
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="icon" href="/favicon.svg" />
+    <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
+    <title>User root MySQL Tetiba Tidak Berfungsi</title>
+  </head>
+
+  <body>
+    <nav>
+      <a href="/index.html">Home</a> • <a href="/about.html">About</a> •
+      <a href="/now.html">Now</a> • <a href="/friends.html">Friends</a> •
+      <a href="/projects.html">Projects</a> • <a href="/feed.xml">RSS</a>
+      <hr />
+    </nav>
+
+    <h1>
+      User root MySQL Tetiba Tidak Berfungsi
+      <div role="doc-subtitle">29 Jul 2022 • Reza Nurfachmi</div>
+    </h1>
+
+    <p>Assalamualaikum warahmatullahi wabarakatuh 👋</p>
+
+    <p>
+      Pagi ini saya mendapatkan notifikasi untuk update versi MySQL terbaru pada laptop yang terinstall LinuxMint dan dipakai rutin untuk kerja setiap hari. Tentunya lebih banyak antara Senin sampai Jum'at saja, karena work life balance itu perlu dan penting.
+    </p>
+
+    <p>
+      Tepat setelah update, saya mulai membuka projek Laravel dan mendapati bahwa ada kesalahan password pada user root yang dipakai.
+    </p>
+
+    <pre><code>$ mysql -uroot -p
+Enter password: 
+ERROR 1698 (28000): Access denied for user 'root'@'localhost'</code></pre>
+
+    <p>
+      Jeng jeng…
+    </p>
+
+    <p>
+      Bingung lah saya mendapati error seperti itu yang bahkan kurang dari 24 jam lalu masih lancar jaya gemah ripah low jinawi!
+    </p>
+
+    <p>
+      Apa yang terjadi dengan laptop saya? Apakah ada yang mencoba mengirim santet ke user root saya? Apakah user root saya terkena dampak inflasi negara Sri Lanka?
+    </p>
+
+    <p>
+      Selidik punya selidik, saya tidak menemukan alasan kenapa semua ini bisa terjadi dan menimpa seorang ayah dengan 1 anak dan 1 istri ini. Namun, solusinya cukup sederhana sesuai dengan pengalaman saya selama ini.
+    </p>
+
+    <p>
+      Saya coba login menggunakan sudo, alhamdulillah bisa. Kemudian saya tuliskan 1 baris sederhana yang mungkin nantinya berguna untuk teman-teman dan diri saya di masa yang akan datang.
+    </p>
+
+    <pre><code>alter user 'root'@'localhost' identified with mysql_native_password by '';</code></pre>
+
+    <p>
+      Dan akhirnya MySQL saya kembali seperti semula. Alhamdulillah.
+    </p>
+
+    <pre><code>$ mysql -uroot -p
+Enter password: 
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 26
+Server version: 8.0.30-0ubuntu0.20.04.2 (Ubuntu)
+
+Copyright (c) 2000, 2022, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql></code></pre>
+
+    <footer>
+      <hr />
+      <p>
+        <strong>Thoughts?</strong>
+        <a href="mailto:reza.nurfachmi@gmail.com">Send me an email!</a> I'd love to
+        discuss.
+      </p>
+      <p>
+        This work is licensed under a
+        <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"
+          >Creative Commons Attribution 4.0 International License</a
+        >.
+      </p>
+    </footer>
+  </body>
+</html>

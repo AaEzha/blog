@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Semua ada triknya dan tidak bikin kamu bodoh, malah makin pintar."
+    />
+
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="icon" href="/favicon.svg" />
+    <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
+    <title>Laravel Bukan Magic</title>
+  </head>
+
+  <body>
+    <nav>
+      <a href="/index.html">Home</a> • <a href="/about.html">About</a> •
+      <a href="/now.html">Now</a> • <a href="/friends.html">Friends</a> •
+      <a href="/projects.html">Projects</a> • <a href="/feed.xml">RSS</a>
+      <hr />
+    </nav>
+
+    <h1>
+      Laravel Bukan Magic
+      <div role="doc-subtitle">19 May 2024 • Reza Nurfachmi</div>
+    </h1>
+
+    <p>Assalamualaikum warahmatullahi wabarakatuh 👋</p>
+
+    <p>
+      Buat saya, Laravel itu bukan "magic".
+    </p>
+
+    <p>
+      Laravel adalah sebuah framework aplikasi web yang memiliki sintaks yang
+      ekspresif dan elegan (menurut situs resminya).
+    </p>
+
+    <p>
+      Apa tuh maksudnya? Yuk kita bahas bareng.
+    </p>
+
+    <hr>
+
+    <h3>Framework</h3>
+
+    <p>
+      Framework atau bingkai kerja, artinya Laravel telah menyediakan struktur dasar dan alat-alat untuk membangun aplikasi web.
+    </p>
+
+    <p>
+      Agar apa?
+    </p>
+
+    <p>
+      Agar pengembang/developer tidak perlu memulai dari nol setiap kali membuat aplikasi.
+    </p>
+
+    <hr>
+
+    <h3>Ekspresif</h3>
+
+    <p>
+      Sintaks yang ekspresif artinya sintaksnya mudah dibaca dan dimengerti oleh kita, manusia, para pengembang.
+    </p>
+
+    <pre><code>Route::get('/users', [UserController::class, 'index']);</code></pre>
+
+    <p>
+      Kode tersebut bisa kita baca menjadi:
+    </p>
+
+    <blockquote>
+      Mengidentifikasikan route GET ke '/users' yang diatur dalam file 'UserController' pada fungsi/method 'index'.
+    </blockquote>
+
+    <p>
+      Menurut aturannya, segala file berujung Controller berada di dalam folder app/Http/Controllers.
+    </p>
+
+    <hr>
+
+    <h3>Elegan</h3>
+
+    <p>
+      Sintaks yang elegan artinya sintaksnya tidak hanya mudah dibaca, tetapi juga ditulis dengan cara yang singkat dan efisien.
+    </p>
+
+    <pre><code>$user = User::find(1);</code></pre>
+
+    <p>
+      Kode tersebut bisa kita baca menjadi:
+    </p>
+
+    <blockquote>
+      Buat variabel 'user' yang nilainya diambil dari model 'User' dengan id '1'.
+    </blockquote>
+
+    <p>
+      Sebenarnya, hampir seluruh framework, bahasa pemrograman apapun, ya sintaksnya itu elegan dan ekspresif bagi yang memahaminya.
+    </p>
+
+    <p>
+      Perbedaan dengan Laravel ialah ia menyebutkannya dalam landing page situs resminya.
+    </p>
+
+    <hr>
+
+    <h3>Bukan <kbd>Magic</kbd></h3>
+
+    <p>
+      Terakhir, Laravel itu bukan 'magic'.
+    </p>
+
+    <p>
+      Sama halnya kita menonton sulap. Tidak ada hal mistis di sana, sebab semua ada triknya. Begitu pula dengan Laravel.
+    </p>
+
+    <p>
+      Misalnya, untuk membuat "slug", kita cukup menulis:
+    </p>
+
+    <pre><code>Str::slug($string);</code></pre>
+
+    <p>
+      ...dan jadilah sebuah slug.
+    </p>
+
+    <p>
+      Etapipaaak fungsi itu ndak ujug-ujug ada dan kita gak bisa tahu ada apa di belakangnya.
+    </p>
+
+    <p>
+      Mari kita bedah sedikit kode sumber (source code) si <kbd>Str::slug()</kbd> tadi.
+    </p>
+
+    <p>
+      si <kbd>Str</kbd> ini nama lengkapnya adalah <kbd>Illuminate\Support\Str</kbd>.
+    </p>
+
+    <p>
+      Pertanyaannya adalah di mana letak file ini?
+    </p>
+
+    <p>
+      Jawaban singkatnya ada di dalam folder <kbd>vendor/laravel/framework/src/Illuminate/Support/Str.php</kbd>, kemudian sila cari fungsi/method <kbd>slug()</kbd>. Apa isinya? Ini isinya...
+    </p>
+
+    <pre><code>public static function slug($title, $separator = '-', $language = 'en', $dictionary = ['@' => 'at'])
+{
+    $title = $language ? static::ascii($title, $language) : $title;
+
+    // Convert all dashes/underscores into separator
+    $flip = $separator === '-' ? '_' : '-';
+
+    $title = preg_replace('!['.preg_quote($flip).']+!u', $separator, $title);
+
+    // Replace dictionary words
+    foreach ($dictionary as $key => $value) {
+        $dictionary[$key] = $separator.$value.$separator;
+    }
+
+    $title = str_replace(array_keys($dictionary), array_values($dictionary), $title);
+
+    // Remove all characters that are not the separator, letters, numbers, or whitespace
+    $title = preg_replace('![^'.preg_quote($separator).'\pL\pN\s]+!u', '', static::lower($title));
+
+    // Replace all separator characters and whitespace by a single separator
+    $title = preg_replace('!['.preg_quote($separator).'\s]+!u', $separator, $title);
+
+    return trim($title, $separator);
+}</code></pre>
+
+    <p>
+      Terus apa artinya? Saya yakin teman-teman di sini sudah memahami dengan membaca kode di atas. Jika belum, boleh minta ChatGPT untuk menjelaskannya ya. Hehehe.
+    </p>
+
+    <p>
+      Poin saya adalah kita tidak hanya menggunakan Laravel dan menikmati segala fitur yang telah disediakan semata. Kita pun mampu mempelajari <em>dalamannya</em>, bahkan mencomot kodenya untuk dipakai dalam projek kita. Itulah indahnya <strong>Open Source Code</strong> atau <strong>Kode Sumber Terbuka</strong>.
+    </p>
+
+    <p>
+      Nah, benar, kan? Semua ada triknya dan tidak bikin kamu bodoh, malah makin pintar.
+    </p>
+
+    <footer>
+      <hr />
+      <p>
+        <strong>Thoughts?</strong>
+        <a href="mailto:reza.nurfachmi@gmail.com">Send me an email!</a> I'd love
+        to discuss.
+      </p>
+      <p>
+        This work is licensed under a
+        <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"
+          >Creative Commons Attribution 4.0 International License</a
+        >.
+      </p>
+    </footer>
+  </body>
+</html>
